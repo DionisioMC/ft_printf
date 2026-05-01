@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 16:51:52 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/01 12:14:13 by dcoelho          ###   ########.fr       */
+/*   Created: 2026/04/22 12:03:03 by dcoelho           #+#    #+#             */
+/*   Updated: 2026/04/22 15:07:39 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
-
-#endif
+int	ft_toupper(int c)
+{
+	if (c >= 97 && c <= 122)
+	{
+		return (c - 32);
+	}
+	return (c);
+}

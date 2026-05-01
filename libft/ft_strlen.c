@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 16:51:52 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/01 12:14:13 by dcoelho          ###   ########.fr       */
+/*   Created: 2026/04/17 16:03:46 by dcoelho           #+#    #+#             */
+/*   Updated: 2026/04/20 13:43:37 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+size_t	ft_strlen(const char *s)
+{
+	int		i;
+	size_t	num;
 
-#endif
+	i = 0;
+	num = 0;
+	while (s[i] != '\0')
+	{
+		num++;
+		i++;
+	}
+	return (num);
+}

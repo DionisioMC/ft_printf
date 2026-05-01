@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 16:51:52 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/01 12:14:13 by dcoelho          ###   ########.fr       */
+/*   Created: 2026/04/27 13:03:35 by dcoelho           #+#    #+#             */
+/*   Updated: 2026/04/27 14:33:01 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char			*str;
+	unsigned int	i;
 
-#endif
+	i = 0;
+	if (!s || !f)
+		return (NULL);
+	str = ft_calloc((ft_strlen(s) + 1), sizeof(char));
+	if (!str)
+		return (NULL);
+	while (i < ft_strlen(s))
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	return (str);
+}

@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 16:51:52 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/01 12:14:13 by dcoelho          ###   ########.fr       */
+/*   Created: 2026/04/22 13:32:25 by dcoelho           #+#    #+#             */
+/*   Updated: 2026/04/22 15:08:26 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
-
-#endif
+int	ft_tolower(int c)
+{
+	if (c >= 65 && c <= 90)
+	{
+		return (c + 32);
+	}
+	return (c);
+}

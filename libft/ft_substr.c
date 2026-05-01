@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 16:58:15 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/01 15:27:30 by dcoelho          ###   ########.fr       */
+/*   Created: 2026/04/23 14:15:35 by dcoelho           #+#    #+#             */
+/*   Updated: 2026/04/29 12:38:10 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	va_list	args;
-	int 	i;
 	char	*str;
+	size_t	s_len;
+	size_t	j;
 
-	i = 0;
-	str = "Hello";
-	va_start(args, format);
-	while(format[i])
+	if (!s)
+		return (NULL);
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (ft_calloc(1, sizeof(char)));
+	if (len > s_len - start)
+		len = s_len - start;
+	str = ft_calloc(len + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	j = 0;
+	while (j < len)
 	{
-		if (format[i] == '%' && format[i + 1] == 'c')
-		{
-			ft_putchar_fd('d', 1);
-		}
-		i++;
+		str[j] = s[start + j];
+		j++;
 	}
-	va_end(args);
-	return (1);
-}
-
-int main()
-{
-	ft_printf("%c", 'd');
+	return (str);
 }

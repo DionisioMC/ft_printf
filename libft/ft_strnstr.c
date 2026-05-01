@@ -1,21 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 16:51:52 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/01 12:14:13 by dcoelho          ###   ########.fr       */
+/*   Created: 2026/04/22 16:40:32 by dcoelho           #+#    #+#             */
+/*   Updated: 2026/04/25 19:27:37 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t	i;
+	size_t	j;
 
-#endif
+	i = 0;
+	if (little[0] == '\0')
+	{
+		return ((char *) big);
+	}
+	while (i < len && big[i] != '\0')
+	{
+		j = 0;
+		while ((i + j) < len && big[i + j] == little[j] && little[j] != '\0')
+		{
+			j++;
+		}
+		if (little[j] == '\0')
+		{
+			return ((char *) &big[i]);
+		}
+		i++;
+	}
+	return (NULL);
+}

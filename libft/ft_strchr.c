@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 16:51:52 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/01 12:14:13 by dcoelho          ###   ########.fr       */
+/*   Created: 2026/04/22 13:45:19 by dcoelho           #+#    #+#             */
+/*   Updated: 2026/04/29 11:58:50 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+char	*ft_strchr(const char *s, int c)
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (unsigned char) c)
+			return ((char *) &s[i]);
+		i++;
+	}
+	if ((unsigned char) c == '\0')
+	{
+		return ((char *) &s[i]);
+	}
+	return (NULL);
+}

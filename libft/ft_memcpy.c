@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 16:51:52 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/01 12:14:13 by dcoelho          ###   ########.fr       */
+/*   Created: 2026/04/20 13:55:14 by dcoelho           #+#    #+#             */
+/*   Updated: 2026/04/27 10:31:25 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t		i;
+	char		*dest_char;
+	const char	*src_char;
 
-#endif
+	i = 0;
+	dest_char = dest;
+	src_char = src;
+	if (!src && !dest)
+	{
+		return (NULL);
+	}
+	while (i < n)
+	{
+		dest_char[i] = src_char[i];
+		i++;
+	}
+	return (dest_char);
+}

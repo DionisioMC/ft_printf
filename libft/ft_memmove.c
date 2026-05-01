@@ -1,21 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 16:51:52 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/01 12:14:13 by dcoelho          ###   ########.fr       */
+/*   Created: 2026/04/20 14:40:46 by dcoelho           #+#    #+#             */
+/*   Updated: 2026/04/28 14:59:01 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	size_t		i;
+	char		*dest_char;
+	const char	*src_char;
 
-#endif
+	dest_char = dest;
+	src_char = src;
+	i = n;
+	if (!src && !dest)
+	{
+		return (NULL);
+	}
+	if (dest < src)
+	{
+		dest_char = ft_memcpy(dest, src, n);
+	}
+	else
+	{
+		while (i > 0)
+		{
+			i--;
+			dest_char[i] = src_char[i];
+		}
+	}
+	return (dest);
+}
