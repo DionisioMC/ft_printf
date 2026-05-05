@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_write_num.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 16:51:52 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/05 19:21:11 by dcoelho          ###   ########.fr       */
+/*   Created: 2026/05/05 18:44:56 by dcoelho           #+#    #+#             */
+/*   Updated: 2026/05/05 19:02:21 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include "libft/libft.h"
+#include "ft_printf.h"
 
-int	ft_printf(const char *format, ...);
-int	ft_write_char(char c);
-int	ft_write_str(char *str);
-int	ft_write_ptr(uintptr_t ptr);
-int	ft_write_num(int num);
-int	ft_write_unsigned(unsigned int num);
-int ft_write_hex(unsigned int num, char flag);
+int	ft_write_num(int num)
+{
+	char	*str;
+	int		char_num;
 
-#endif
+	char_num = 0;
+	str = ft_itoa(num);
+	char_num += ft_write_str(str);
+	free(str);
+	return (char_num);
+}

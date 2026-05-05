@@ -6,7 +6,7 @@
 #    By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/29 17:25:08 by dcoelho           #+#    #+#              #
-#    Updated: 2026/05/01 15:20:46 by dcoelho          ###   ########.fr        #
+#    Updated: 2026/05/05 19:16:17 by dcoelho          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -I libft
 
-FILES = ft_printf.c
+FILES = ft_printf.c ft_write_char.c ft_write_str.c ft_write_ptr.c ft_write_num.c \
+ft_write_unsigned.c ft_write_hex.c
 
 LIBFT = libft/libft.a
 
