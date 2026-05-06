@@ -6,22 +6,22 @@
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:57:56 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/05 18:39:24 by dcoelho          ###   ########.fr       */
+/*   Updated: 2026/05/06 14:40:45 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_hex(uintptr_t num)
+int	print_hex(uintptr_t num)
 {
 	int		char_num;
 	char	*hex;
-	char	arr[21];
+	char	arr[17];
 	int		i;
 
 	char_num = 0;
 	hex = "0123456789abcdef";
-	i = 20;
+	i = 16;
 	arr[i] = '\0';
 	while (num != 0)
 	{
@@ -35,7 +35,7 @@ int print_hex(uintptr_t num)
 
 int	ft_write_ptr(uintptr_t ptr)
 {
-	int			char_num;
+	int	char_num;
 
 	char_num = 0;
 	if (!ptr)

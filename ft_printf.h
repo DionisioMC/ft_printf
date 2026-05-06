@@ -6,7 +6,7 @@
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 16:51:52 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/05 19:21:11 by dcoelho          ###   ########.fr       */
+/*   Updated: 2026/05/06 11:26:34 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	ft_write_str(char *str);
 int	ft_write_ptr(uintptr_t ptr);
 int	ft_write_num(int num);
 int	ft_write_unsigned(unsigned int num);
-int ft_write_hex(unsigned int num, char flag);
+int	ft_write_hex(unsigned int num, char flag);
 
 #endif

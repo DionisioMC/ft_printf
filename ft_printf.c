@@ -6,7 +6,7 @@
 /*   By: dcoelho <dcoelho@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 16:58:15 by dcoelho           #+#    #+#             */
-/*   Updated: 2026/05/05 19:20:48 by dcoelho          ###   ########.fr       */
+/*   Updated: 2026/05/06 14:43:13 by dcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	interpret_flag(char c, va_list arg)
 		char_num += ft_write_unsigned(va_arg(arg, unsigned int));
 	}
 	else if (c == 'x' || c == 'X')
-		char_num += ft_write_hex(va_arg(arg, unsigned int));
+		char_num += ft_write_hex(va_arg(arg, unsigned int), c);
 	else if (c == '%')
 		char_num += ft_write_char(c);
 	return (char_num);
@@ -49,7 +49,7 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	va_start(args, format);
 	char_num = 0;
-	while(format[i])
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
@@ -63,9 +63,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (char_num);
 }
-
-/* int main()
-{
-	int i = 10;
-	ft_printf("%p\n", -1);
-}  */
